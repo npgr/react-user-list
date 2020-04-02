@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ROUTES } from "./routes/routes";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import UserDetail from "./pages/UserDetail";
 import Header from "./components/Header";
 import "semantic-ui-css/semantic.min.css";
@@ -11,6 +12,7 @@ const App: React.FC = () => (
     <Header />
     <Switch>
       <Route exact path={ROUTES.HOME} component={Home} />
+      <Route exact path={ROUTES.LOGIN} component={Login} />
       <Route path={ROUTES.USER_DETAIL} component={UserDetail} />
     </Switch>
   </BrowserRouter>

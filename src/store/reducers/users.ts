@@ -26,7 +26,7 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
         ...state,
         loading: false,
         // Esto puede ser mas sofisticado
-        error: "Error Loading User List",
+        error: payload.error || "Error Loading User List",
       };
     case "GET_USER_PENDING":
       return {
@@ -43,7 +43,7 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
       return {
         ...state,
         loading: false,
-        error: "Error Loading User",
+        error: payload.error || "Error Loading User",
       };
     case "DELETE_USER_PENDING":
       return {
@@ -61,7 +61,7 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
       return {
         ...state,
         loading: false,
-        error: "Error deleting User",
+        error: payload.error || "Error deleting User",
       };
     case "CHANGE_USER_PENDING":
       return {
@@ -79,7 +79,7 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
       return {
         ...state,
         loading: false,
-        error: "Error Changing User",
+        error: payload.error || "Error Changing User",
       };
     case "CLEAR_MESSAGES":
       return {
