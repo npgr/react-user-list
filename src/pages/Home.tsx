@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "semantic-ui-react";
-import { getUsers } from "../../store/actions/users";
-import UsersList from "../../components/UsersList";
-import { Title } from "../../components/Title";
+import { getUsers } from "../store/actions/users";
+import UsersList from "../components/UserList";
+import { Title } from "../components/Title";
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();

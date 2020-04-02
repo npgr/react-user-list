@@ -1,6 +1,6 @@
 import React from "react";
-import { User } from "../../models/user";
-import UserCard from "../UserCard";
+import { User } from "../models/user";
+import UserCard from "./UserCard";
 
 interface IUsersListProps {
   users: User[];

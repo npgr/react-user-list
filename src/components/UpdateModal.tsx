@@ -16,8 +16,6 @@ interface IProps {
   onClose: any;
 }
 
-console.log("Modal");
-
 const UpdateModal = ({ message, onClose }: IProps) => (
   <Modal size="mini" open={!!message}>
     <Modal.Content>

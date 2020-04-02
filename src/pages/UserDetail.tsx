@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import { Container, Button } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import { UserDetail } from "../../models/user";
-import { getUser, clearMessages } from "../../store/actions/users";
-import { Title } from "../../components/Title";
-import UserInfo from "../../components/UserForm";
-import UpdateModal from "../../components/UpdateModal";
+import { UserDetail } from "../models/user";
+import { getUser, clearMessages } from "../store/actions/users";
+import { Title } from "../components/Title";
+import UserInfo from "../components/UserForm";
+import UpdateModal from "../components/UpdateModal";
 
 const Home: React.FC = () => {
   const history = useHistory();

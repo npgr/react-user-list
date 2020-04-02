@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { UserDetail } from "../../models/user";
-import { changeUser, deleteUser } from "../../store/actions/users";
+import { UserDetail } from "../models/user";
+import { changeUser, deleteUser } from "../store/actions/users";
 
 const Container = styled.div`
   padding: 1.5rem;
@@ -22,7 +21,6 @@ const UserInfo = ({ user }: IProps) => {
   const [mode, setmode] = useState(MODE.VIEW);
   const [userEdited, setUserEdited] = useState(user);
   const dispatch = useDispatch();
-  const history = useHistory();
   const { id, first_name, last_name, email } = user;
 
   const handleDelete = () => {

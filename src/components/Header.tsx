@@ -1,5 +1,5 @@
 import React from "react";
-import { Title } from "../Title";
+import { Title } from "./Title";
 import styled from "styled-components";
 
 const Container = styled.h3`
@@ -9,7 +9,7 @@ const Container = styled.h3`
 const Home: React.FC = () => {
   return (
     <Container>
-      <Title>React Application</Title>
+      <Title>La Liga</Title>
     </Container>
   );
 };
