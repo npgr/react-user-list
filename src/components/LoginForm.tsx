@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { Container, Button, Form } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -18,12 +19,14 @@ const LoginForm = () => {
   }, [logged, history]);
 
   const handleLogin = () => {
-    dispatch(login(user, password));
+    user === "prueba"
+      ? history.push(ROUTES.HOME)
+      : dispatch(login(user, password));
   };
 
-  const handleSimulateLogin = () => {
-    history.push(ROUTES.HOME);
-  };
+  const Prueba = styled.div`
+    padding: 2rem 0;
+  `;
 
   return (
     <Container>
@@ -51,7 +54,7 @@ const LoginForm = () => {
         <Button primary disabled={!user || !password} onClick={handleLogin}>
           Login
         </Button>
-        <Button onClick={handleSimulateLogin}>Simulate Login</Button>
+        <Prueba>Nota: Puede usar usuario "prueba"</Prueba>
       </Form>
     </Container>
   );
