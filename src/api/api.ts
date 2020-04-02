@@ -1,4 +1,5 @@
 import axios, { AxiosStatic, AxiosResponse } from "axios";
+import { UserForChange } from "../models/user";
 
 class API {
   http: AxiosStatic;
@@ -42,10 +43,19 @@ class API {
 
   public deleteUser = (id: string): Promise<AxiosResponse> =>
     this.http
-      .delete(`https://reqres.in/api/users/${id}`)
+      .delete(`https://reqres.in/api/users/${id}`, {})
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
+
+  public changeUser = (user: UserForChange): Promise<AxiosResponse> => {
+    const { id, ...userData } = user;
+    return this.http
+      .put(`https://reqres.in/api/users/${id}`, userData)
+      .then(
+        (response) => (response && response.data && response.data.data) || []
+      );
+  };
 }
 
 export default new API();
