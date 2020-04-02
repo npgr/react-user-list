@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
-  const users = useSelector((state: any) => state.users.users);
+  const users = useSelector((state: any) => state.users.userList);
 
   return (
     <Container>

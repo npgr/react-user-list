@@ -32,6 +32,13 @@ class API {
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
+
+  public getUser = (id: string): Promise<AxiosResponse> =>
+    this.http
+      .get(`https://reqres.in/api/users/${id}`)
+      .then(
+        (response) => (response && response.data && response.data.data) || []
+      );
 }
 
 export default new API();

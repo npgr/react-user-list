@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, ShallowWrapper } from "enzyme";
 import App from "./App";
-import Header from "./components/Header/Header.component";
+import Header from "./components/Header";
 
 describe("Home Page", () => {
   let wrapper: ShallowWrapper;
