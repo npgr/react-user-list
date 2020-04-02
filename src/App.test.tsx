@@ -1,9 +1,21 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { shallow, ShallowWrapper } from "enzyme";
+import App from "./App";
+import Header from "./components/Header/Header.component";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Home Page", () => {
+  let wrapper: ShallowWrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it("should render correctly", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should render a Header component", () => {
+    const headerElement = wrapper.find(Header);
+    expect(headerElement.exists()).toBeTruthy();
+  });
 });
