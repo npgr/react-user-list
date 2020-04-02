@@ -13,7 +13,7 @@ interface IProps {
   user: UserDetail;
 }
 
-const UserInfo = ({ user }: IProps) => {
+const UserForm = ({ user }: IProps) => {
   const MODE = {
     VIEW: "VIEW",
     EDIT: "EDIT",
@@ -35,7 +35,7 @@ const UserInfo = ({ user }: IProps) => {
   const modeView = mode === MODE.VIEW;
 
   return (
-    <Container key={id}>
+    <Container>
       <div>
         <strong>{`Mode: ${mode}`}</strong>
       </div>
@@ -97,4 +97,4 @@ const UserInfo = ({ user }: IProps) => {
   );
 };
 
-export default UserInfo;
+export default UserForm;
