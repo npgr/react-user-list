@@ -6,12 +6,12 @@ class API {
   constructor() {
     axios.defaults.baseURL = "";
     this.http = axios;
+    this.setInterceptors();
   }
 
   public setInterceptors(): void {
     const handleResponseError = (error: any) => {
-      console.log("error: ", error);
-      //   if (error.response && error.response.status === 401) {
+      //   if (error.response && error.response.status === 404) {
       //     window.location.href = '/logout';
       //   }
 
@@ -19,7 +19,6 @@ class API {
     };
 
     const handleResponse = (response: any) => {
-      console.log("response: ", response);
       return response;
     };
 
