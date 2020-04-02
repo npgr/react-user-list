@@ -12,7 +12,9 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "styled-components": "^5.0.1",
     "typescript": "~3.7.2"
   },
   "lint-staged": {
@@ -31,7 +33,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn code:lint && yarn test:once"
     }
   },
   "eslintConfig": {
@@ -50,6 +53,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.3",
+    "@types/styled-components": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "2.26.0",
     "@typescript-eslint/parser": "2.26.0",
     "babel-eslint": "10.1.0",
