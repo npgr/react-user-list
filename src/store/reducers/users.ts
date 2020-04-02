@@ -55,7 +55,7 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
         ...state,
         loading: false,
         user: {},
-        successUpdate: "Usuario borrado correctamente",
+        successUpdate: "User Successfully deleted",
       };
     case "DELETE_USER_FAILED":
       return {
@@ -63,7 +63,30 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
         loading: false,
         error: "Error deleting User",
       };
-
+    case "CHANGE_USER_PENDING":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "CHANGE_USER_FULFILLED":
+      return {
+        ...state,
+        loading: false,
+        user: {},
+        successUpdate: "User Successfully updated",
+      };
+    case "CHANGE_USER_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: "Error Changing User",
+      };
+    case "CLEAR_MESSAGES":
+      return {
+        ...state,
+        successUpdate: null,
+        error: null,
+      };
     default:
       return state;
   }
