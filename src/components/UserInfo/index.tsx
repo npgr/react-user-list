@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { UserDetail } from "../../models/user";
+import { deleteUser } from "../../store/actions/users";
 
 const Container = styled.div`
   padding: 1.5rem;
@@ -13,8 +15,14 @@ interface IProps {
 }
 
 const UserInfo = ({ user }: IProps) => {
-  const { id, first_name, last_name, email, avatar } = user;
+  const dispatch = useDispatch();
   const history = useHistory();
+  const { id, first_name, last_name, email } = user;
+
+  const handleDelete = () => {
+    dispatch(deleteUser(`${id}`));
+  };
+
   return (
     <Container key={id}>
       <Form>
@@ -30,7 +38,9 @@ const UserInfo = ({ user }: IProps) => {
           <label>Email</label>
           <input disabled placeholder="Email" value={email} />
         </Form.Field>
-        <Button>Delete</Button>
+        <Button primary onClick={handleDelete}>
+          Delete
+        </Button>
       </Form>
     </Container>
   );

@@ -39,6 +39,13 @@ class API {
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
+
+  public deleteUser = (id: string): Promise<AxiosResponse> =>
+    this.http
+      .delete(`https://reqres.in/api/users/${id}`)
+      .then(
+        (response) => (response && response.data && response.data.data) || []
+      );
 }
 
 export default new API();

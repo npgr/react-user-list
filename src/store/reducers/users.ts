@@ -2,6 +2,7 @@ import { AnyAction } from "redux";
 
 const defaultState = {
   loading: false,
+  successUpdate: null,
   error: null,
   userList: [],
   user: null,
@@ -24,7 +25,8 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
       return {
         ...state,
         loading: false,
-        error: payload,
+        // Esto puede ser mas sofisticado
+        error: "Error Loading User List",
       };
     case "GET_USER_PENDING":
       return {
@@ -41,7 +43,25 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
       return {
         ...state,
         loading: false,
-        error: payload,
+        error: "Error Loading User",
+      };
+    case "DELETE_USER_PENDING":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "DELETE_USER_FULFILLED":
+      return {
+        ...state,
+        loading: false,
+        user: {},
+        successUpdate: "Usuario borrado correctamente",
+      };
+    case "DELETE_USER_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: "Error deleting User",
       };
 
     default:
