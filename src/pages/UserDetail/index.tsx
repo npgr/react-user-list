@@ -5,9 +5,10 @@ import { Container, Button } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { UserDetail } from "../../models/user";
-import { getUser } from "../../store/actions/users";
+import { getUser, clearMessages } from "../../store/actions/users";
 import { Title } from "../../components/Title";
-import UserInfo from "../../components/UserInfo";
+import UserInfo from "../../components/UserForm";
+import UpdateModal from "../../components/UpdateModal";
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -17,6 +18,10 @@ const Home: React.FC = () => {
     userId && dispatch(getUser(userId));
   }, [userId, dispatch]);
   const user: UserDetail = useSelector((state: any) => state.users.user);
+  const error: string = useSelector((state: any) => state.users.error);
+  const successUpdate: string = useSelector(
+    (state: any) => state.users.successUpdate
+  );
 
   const goBack = () => history.goBack();
 
@@ -25,8 +30,16 @@ const Home: React.FC = () => {
     margin-right: 10rem;
   `;
 
+  const updateMessage = error || successUpdate;
+
+  const onCloseModal = () => {
+    dispatch(clearMessages());
+    goBack();
+  };
+
   return (
     <Container>
+      <UpdateModal message={updateMessage} onClose={onCloseModal} />
       <Title>
         <TitleText>User Detail</TitleText>
         <Button primary onClick={goBack}>
