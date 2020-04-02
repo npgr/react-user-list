@@ -21,6 +21,10 @@ const LoginForm = () => {
     dispatch(login(user, password));
   };
 
+  const handleSimulateLogin = () => {
+    history.push(ROUTES.HOME);
+  };
+
   return (
     <Container>
       <UpdateModal message={error} onClose={() => dispatch(clearError())} />
@@ -47,6 +51,7 @@ const LoginForm = () => {
         <Button primary disabled={!user || !password} onClick={handleLogin}>
           Login
         </Button>
+        <Button onClick={handleSimulateLogin}>Simulate Login</Button>
       </Form>
     </Container>
   );
