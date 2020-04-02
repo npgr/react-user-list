@@ -5,7 +5,7 @@ class API {
   http: AxiosStatic;
 
   constructor() {
-    axios.defaults.baseURL = "";
+    axios.defaults.baseURL = "https://reqres.in/api/";
     this.http = axios;
     this.setInterceptors();
   }
@@ -29,21 +29,21 @@ class API {
 
   public getUsers = (): Promise<AxiosResponse> =>
     this.http
-      .get("https://reqres.in/api/users")
+      .get("users")
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
 
   public getUser = (id: string): Promise<AxiosResponse> =>
     this.http
-      .get(`https://reqres.in/api/users/${id}`)
+      .get(`users/${id}`)
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
 
   public deleteUser = (id: string): Promise<AxiosResponse> =>
     this.http
-      .delete(`https://reqres.in/api/users/${id}`, {})
+      .delete(`users/${id}`, {})
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
@@ -51,7 +51,7 @@ class API {
   public changeUser = (user: UserForChange): Promise<AxiosResponse> => {
     const { id, ...userData } = user;
     return this.http
-      .put(`https://reqres.in/api/users/${id}`, userData)
+      .put(`users/${id}`, userData)
       .then(
         (response) => (response && response.data && response.data.data) || []
       );
