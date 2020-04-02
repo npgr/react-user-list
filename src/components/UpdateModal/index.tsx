@@ -4,6 +4,11 @@ import styled from "styled-components";
 
 const Text = styled.div`
   padding: 3rem;
+  text-align: center;
+`;
+
+const ButtonContainer = styled.div`
+  text-align: center;
 `;
 
 interface IProps {
@@ -14,12 +19,14 @@ interface IProps {
 console.log("Modal");
 
 const UpdateModal = ({ message, onClose }: IProps) => (
-  <Modal open={!!message}>
+  <Modal size="mini" open={!!message}>
     <Modal.Content>
       <Text>{message}</Text>
-      <Button primary onClick={onClose}>
-        Continue
-      </Button>
+      <ButtonContainer>
+        <Button primary onClick={onClose}>
+          Continue
+        </Button>
+      </ButtonContainer>
     </Modal.Content>
   </Modal>
 );
