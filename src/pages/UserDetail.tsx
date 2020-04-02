@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Card } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { UserDetail } from "../models/user";
 import { getUser, clearMessages } from "../store/actions/users";
 import { Title } from "../components/Title";
-import UserInfo from "../components/UserForm";
+import UserForm from "../components/UserForm";
 import UpdateModal from "../components/UpdateModal";
 
 const Home: React.FC = () => {
@@ -40,13 +40,17 @@ const Home: React.FC = () => {
   return (
     <Container>
       <UpdateModal message={updateMessage} onClose={onCloseModal} />
-      <Title>
-        <TitleText>User Detail</TitleText>
-        <Button primary onClick={goBack}>
-          Go Back
-        </Button>
-      </Title>
-      {user && <UserInfo user={user} />}
+      <Card>
+        <Card.Content>
+          <Title>
+            <TitleText>User</TitleText>
+            <Button primary onClick={goBack}>
+              Go Back
+            </Button>
+          </Title>
+          {user && <UserForm user={user} />}
+        </Card.Content>
+      </Card>
     </Container>
   );
 };
