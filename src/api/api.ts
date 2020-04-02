@@ -42,19 +42,15 @@ class API {
       );
 
   public deleteUser = (id: string): Promise<AxiosResponse> =>
-    this.http
-      .delete(`users/${id}`, {})
-      .then(
-        (response) => (response && response.data && response.data.data) || []
-      );
+    this.http.delete(`users/${id}`, {});
 
   public changeUser = (user: UserForChange): Promise<AxiosResponse> => {
     const { id, ...userData } = user;
-    return this.http
-      .put(`users/${id}`, userData)
-      .then(
-        (response) => (response && response.data && response.data.data) || []
-      );
+    return this.http.put(`users/${id}`, userData);
+  };
+
+  public login = (user: string, password: string): Promise<AxiosResponse> => {
+    return this.http.post(`login?email=${user}&password=${password}`);
   };
 }
 
