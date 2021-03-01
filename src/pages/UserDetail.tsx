@@ -5,15 +5,19 @@ import { Container, Button, Card } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { UserDetail } from "../models/user";
-import { getUser, clearMessages } from "../store/actions/users";
+import { getUser, clearMessages } from "../store/users/users.actions";
 import { Title } from "../components/Title";
 import UserForm from "../components/UserForm";
 import UpdateModal from "../components/UpdateModal";
 
+interface IUserDetailParams {
+  id: string;
+}
+
 const Home: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { id: userId } = useParams();
+  const { id: userId } = useParams<IUserDetailParams>();
   useEffect(() => {
     userId && dispatch(getUser(userId));
   }, [userId, dispatch]);

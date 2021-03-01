@@ -50,7 +50,11 @@ class API {
   };
 
   public login = (user: string, password: string): Promise<AxiosResponse> => {
-    return this.http.post(`login?email=${user}&password=${password}`);
+    const body = {
+      email: user,
+      password: password,
+    };
+    return this.http.post("login", body);
   };
 }
 

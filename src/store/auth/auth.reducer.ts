@@ -1,43 +1,34 @@
 import { AnyAction } from "redux";
+import AUTH_TYPES from "./auth.types";
 
 const defaultState = {
   loading: false,
-  logged: false,
+  token: null,
   user: null,
+  error: null,
 };
 
 export default (state = defaultState, { type, payload }: AnyAction) => {
   switch (type) {
-    case "LOGIN_PENDING":
+    case AUTH_TYPES.LOGIN_PENDING:
       return {
         ...state,
         loading: true,
+        token: null,
+        error: null,
       };
-    case "LOGIN_FULFILLED":
+    case AUTH_TYPES.LOGIN_FULFILLED:
       return {
         ...state,
         loading: false,
-        logged: true,
+        token: payload.token,
         user: payload.user,
       };
-    case "LOGIN_FAILED":
+    case AUTH_TYPES.LOGIN_REJECTED:
       return {
         ...state,
         loading: false,
-        logged: false,
-        error: payload.error || "User or password incorrect",
-      };
-    case "LOGIN_REJECTED":
-      return {
-        ...state,
-        loading: false,
-        logged: false,
-        error: payload.error || "User or password incorrect",
-      };
-    case "CLEAR_ERROR":
-      return {
-        ...state,
-        error: null,
+        error: payload || "User or password incorrect",
       };
     default:
       return state;

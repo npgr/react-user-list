@@ -3,9 +3,10 @@ import { Button, Form } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { UserDetail } from "../models/user";
-import { changeUser, deleteUser } from "../store/actions/users";
+import { changeUser, deleteUser } from "../store/users/users.actions";
 
 const Container = styled.div`
+  margin-top: 1rem;
   padding: 1.5rem;
   max-width: 20rem;
 `;
@@ -34,43 +35,52 @@ const UserForm = ({ user }: IProps) => {
 
   const modeView = mode === MODE.VIEW;
 
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+    // @ts-ignore
+    const newUser = { ...userEdited, [e.target.id]: e.target.value };
+    setUserEdited(newUser);
+    console.log("user: ", newUser);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("userEdited: ", userEdited);
+  };
+
   return (
     <Container>
       <div>
         <strong>{`Mode: ${mode}`}</strong>
       </div>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Field>
           <label>First Name</label>
           <input
+            id="first_name"
             disabled={modeView}
             placeholder="First Name"
             defaultValue={first_name}
-            onBlur={(e) =>
-              setUserEdited({ ...userEdited, first_name: e.target.value })
-            }
+            onChange={handleInputChange}
           />
         </Form.Field>
         <Form.Field>
           <label>Last Name</label>
           <input
+            id="last_name"
             disabled={modeView}
             placeholder="Last Name"
             defaultValue={last_name}
-            onBlur={(e) =>
-              setUserEdited({ ...userEdited, last_name: e.target.value })
-            }
+            onChange={handleInputChange}
           />
         </Form.Field>
         <Form.Field>
           <label>Email</label>
           <input
+            id={email}
             disabled={modeView}
             placeholder="Email"
             defaultValue={email}
-            onBlur={(e) =>
-              setUserEdited({ ...userEdited, email: e.target.value })
-            }
+            onChange={handleInputChange}
           />
         </Form.Field>
         {modeView ? (

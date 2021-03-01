@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "semantic-ui-react";
-import { getUsers } from "../store/actions/users";
+import { getUsers } from "../store/users/users.actions";
 import UsersList from "../components/UserList";
 import { Title } from "../components/Title";
 
