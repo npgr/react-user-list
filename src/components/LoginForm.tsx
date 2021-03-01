@@ -30,7 +30,7 @@ const LoginForm = () => {
             required
             placeholder="User Name"
             value={user}
-            onChange={(e) => setUser(e.target.value)}
+            onChange={(e) => setUser(e.target.value.trim())}
           />
         </Form.Field>
         <Form.Field>
@@ -40,7 +40,7 @@ const LoginForm = () => {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value.trim())}
           />
         </Form.Field>
         <Message error visible={!!errorMessage} content={errorMessage} />

@@ -30,6 +30,12 @@ export default (state = defaultState, { type, payload }: AnyAction) => {
         loading: false,
         error: payload || "User or password incorrect",
       };
+    case AUTH_TYPES.LOGOUT:
+      return {
+        ...state,
+        user: null,
+        token: null,
+      };
     default:
       return state;
   }

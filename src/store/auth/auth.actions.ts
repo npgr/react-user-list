@@ -36,3 +36,7 @@ export const login = (user: string, password: string) => (
       });
     });
 };
+
+export const logout = () => ({
+  type: AUTH_TYPES.LOGOUT,
+});
