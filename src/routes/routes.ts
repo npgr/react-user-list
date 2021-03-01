@@ -1,5 +1,5 @@
 export const ROUTES = {
   HOME: "/users",
-  LOGIN: "/",
+  LOGIN: "/login",
   USER_DETAIL: "/user/:id",
 };
