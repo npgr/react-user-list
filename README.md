@@ -53,7 +53,7 @@ Se puede utilizar usuario janet.weaver@reqres.in con cualquier password para ing
 
 ## Algunos detalles
 
-- El token resultante del login se persiste en localStorage, no se utilizo redux-persist
+- El token resultante del login se persiste en localStorage, no se utilizó redux-persist
 - El token se envia en header de las llamadas Api
 - Cuando no se está autenticado (no existe token) y se trata de ingresar a las páginas de usuarios, se hace un redirect a login
 - Si se está autenticado (existe token) y se trata de ir a la página de login, se redirige a home (lista de usuarios)

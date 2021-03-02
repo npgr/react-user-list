@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 import { User } from "../../models/user";
 import UserCard from "../UserCard";
 
@@ -8,7 +9,7 @@ interface IUsersListProps {
 
 const UserList = ({ users }: IUsersListProps) => {
   return (
-    <>
+    <Container textAlign="center">
       {users.map(({ id, first_name, last_name }, index) => (
         <UserCard
           key={index}
@@ -17,7 +18,7 @@ const UserList = ({ users }: IUsersListProps) => {
           last_name={last_name}
         />
       ))}
-    </>
+    </Container>
   );
 };
 
