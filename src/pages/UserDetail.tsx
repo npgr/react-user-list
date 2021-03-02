@@ -11,6 +11,7 @@ import {
   selectError,
   selectSuccessUpdate,
 } from "../store/users/users.selectors";
+import { PageContainer } from "../components/PageContainer";
 import { Title } from "../components/Title";
 import UserForm from "../components/UserForm";
 import UpdateModal from "../components/UpdateModal";
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Container>
+    <PageContainer>
       <UpdateModal message={updateMessage} onClose={onCloseModal} />
       <Card>
         <Card.Content>
@@ -58,7 +59,7 @@ const Home: React.FC = () => {
           {user && <UserForm user={user} />}
         </Card.Content>
       </Card>
-    </Container>
+    </PageContainer>
   );
 };
 
