@@ -39,12 +39,10 @@ const UserForm = ({ user }: IProps) => {
     // @ts-ignore
     const newUser = { ...userEdited, [e.target.id]: e.target.value };
     setUserEdited(newUser);
-    console.log("user: ", newUser);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("userEdited: ", userEdited);
   };
 
   return (

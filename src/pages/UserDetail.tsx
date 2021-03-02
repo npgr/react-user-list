@@ -6,6 +6,11 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { UserDetail } from "../models/user";
 import { getUser, clearMessages } from "../store/users/users.actions";
+import {
+  selectUser,
+  selectError,
+  selectSuccessUpdate,
+} from "../store/users/users.selectors";
 import { Title } from "../components/Title";
 import UserForm from "../components/UserForm";
 import UpdateModal from "../components/UpdateModal";
@@ -21,11 +26,9 @@ const Home: React.FC = () => {
   useEffect(() => {
     userId && dispatch(getUser(userId));
   }, [userId, dispatch]);
-  const user: UserDetail = useSelector((state: any) => state.users.user);
-  const error: string = useSelector((state: any) => state.users.error);
-  const successUpdate: string = useSelector(
-    (state: any) => state.users.successUpdate
-  );
+  const user: UserDetail = useSelector(selectUser);
+  const error: string = useSelector(selectError);
+  const successUpdate: string = useSelector(selectSuccessUpdate);
 
   const goBack = () => history.goBack();
 

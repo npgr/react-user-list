@@ -1,26 +1,27 @@
 import api from "../../api/api";
+import USER_TYPES from "./users.types";
 import { UserForChange } from "../../models/user";
 
 export const getUsers = () => ({
-  type: "GET_USER_LIST",
+  type: USER_TYPES.GET_USER_LIST,
   payload: api.getUsers(),
 });
 
 export const getUser = (id: string) => ({
-  type: "GET_USER",
+  type: USER_TYPES.GET_USER,
   payload: api.getUser(id),
 });
 
 export const deleteUser = (id: string) => ({
-  type: "DELETE_USER",
+  type: USER_TYPES.DELETE_USER,
   payload: api.deleteUser(id),
 });
 
 export const changeUser = (user: UserForChange) => ({
-  type: "CHANGE_USER",
+  type: USER_TYPES.CHANGE_USER,
   payload: api.changeUser(user),
 });
 
 export const clearMessages = () => ({
-  type: "CLEAR_MESSAGES",
+  type: USER_TYPES.CLEAR_MESSAGES,
 });
