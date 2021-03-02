@@ -58,5 +58,6 @@ Se puede utilizar usuario janet.weaver@reqres.in con cualquier password para ing
 - Cuando no se está autenticado (no existe token) y se trata de ingresar a las páginas de usuarios, se hace un redirect a login
 - Si se está autenticado (existe token) y se trata de ir a la página de login, se redirige a home (lista de usuarios)
 - Si se trata de ir a una ruta inexistente, se redirige a home, no se implementó página para 404
+- Responsive: las tarjetas de login y detalle de usuario desaparecen para width < 450px
 
 ## ESTA APLICACION FUE CREADA CON CREATE-REACT-APP con opcion Typescript
