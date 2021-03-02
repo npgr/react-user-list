@@ -1,5 +1,10 @@
 import axios, { AxiosStatic, AxiosResponse } from "axios";
 import { UserForChange } from "../models/user";
+import {
+  handleRequest,
+  handleResponse,
+  handleResponseError,
+} from "./api.interceptors";
 
 class API {
   http: AxiosStatic;
@@ -11,19 +16,7 @@ class API {
   }
 
   public setInterceptors(): void {
-    const handleResponseError = (error: any) => {
-      //   if (error.response && error.response.status === 404) {
-      //     window.location.href = '/logout';
-      //   }
-
-      return Promise.reject(error);
-    };
-
-    const handleResponse = (response: any) => {
-      return response;
-    };
-
-    // this.http.interceptors.request.use(handleRequest);
+    this.http.interceptors.request.use(handleRequest);
     this.http.interceptors.response.use(handleResponse, handleResponseError);
   }
 
