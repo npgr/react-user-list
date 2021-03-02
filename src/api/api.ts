@@ -20,11 +20,12 @@ class API {
     this.http.interceptors.response.use(handleResponse, handleResponseError);
   }
 
-  public getUsers = (): Promise<AxiosResponse> =>
+  public getUsers = (page = 1): Promise<AxiosResponse> =>
     this.http
-      .get("users")
+      .get(`users?page=${page}`)
       .then(
-        (response) => (response && response.data && response.data.data) || []
+        (response) =>
+          (response && response.data) || { data: [], page: 0, total_pages: 0 }
       );
 
   public getUser = (id: string): Promise<AxiosResponse> =>

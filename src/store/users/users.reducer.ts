@@ -16,6 +16,8 @@ const INITIAL_STATE = {
   error: null,
   userList: [],
   user: null,
+  page: 0,
+  totalPages: 0,
 };
 
 const getUserListPending = (state: IUserState) => ({
@@ -23,11 +25,18 @@ const getUserListPending = (state: IUserState) => ({
   loading: true,
 });
 
-const getUserListFulfilled = (state: IUserState, { payload }: AnyAction) => ({
-  ...state,
-  loading: false,
-  userList: payload,
-});
+const getUserListFulfilled = (state: IUserState, { payload }: AnyAction) => {
+  const page = payload.page || 0;
+  const data = payload.data || [];
+
+  return {
+    ...state,
+    loading: false,
+    userList: page < 2 ? data : state.userList.concat(data),
+    page: page,
+    totalPages: payload.total_pages || 0,
+  };
+};
 
 const getUserListRejected = (state: IUserState, { payload }: AnyAction) => ({
   ...state,

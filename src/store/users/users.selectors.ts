@@ -21,3 +21,8 @@ export const selectSuccessUpdate = createSelector(
   [usersSelector],
   (users) => users.successUpdate
 );
+
+export const selectPages = createSelector([usersSelector], (users) => ({
+  page: users.page,
+  totalPages: users.totalPages,
+}));
