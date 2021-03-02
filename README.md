@@ -6,11 +6,11 @@ Ejecutar `yarn install`
 
 Ejecutar `yarn start`
 
-La aplicacion tiene 3 rutas:
+La aplicacion tiene 3 rutas, páginas a saber:
 
-- / -> Login
-- /users -> lista de usuarios: se decidio hacerlo con cards y no tabla (mas responsive)
-- /user/:id -> detalle de un usuario
+- /login -> Login
+- /users -> lista de usuarios
+- /user/:id -> detalle de un usuario, con opciones de editar y borrar
 
 ## como Ejecutar tests
 
@@ -49,6 +49,14 @@ Se configuraron hook para pre-commit (prettier) y pre-push (lint & tests)
 
 ## Login
 
-Se habilito un usuario `prueba` para poder hacer login
+Se puede utilizar usuario janet.weaver@reqres.in con cualquier password para ingresar a la aplicación
+
+## Algunos detalles
+
+- El token resultante del login se persiste en localStorage, no se utilizo redux-persist
+- El token se envia en header de las llamadas Api
+- Cuando no se está autenticado (no existe token) y se trata de ingresar a las páginas de usuarios, se hace un redirect a login
+- Si se está autenticado (existe token) y se trata de ir a la página de login, se redirige a home (lista de usuarios)
+- Si se trata de ir a una ruta inexistente, se redirige a home, no se implementó página para 404
 
 ## ESTA APLICACION FUE CREADA CON CREATE-REACT-APP con opcion Typescript
