@@ -6,11 +6,11 @@ import { changeUser, deleteUser } from "../../store/users/users.actions";
 import { Container } from "./UserForm.styles";
 import { MODE } from "./UserForm.constants";
 
-interface IProps {
+interface IUserFormProps {
   user: UserDetail;
 }
 
-const UserForm = ({ user }: IProps) => {
+const UserForm = ({ user }: IUserFormProps) => {
   const [mode, setmode] = useState(MODE.VIEW);
   const [userEdited, setUserEdited] = useState(user);
   const dispatch = useDispatch();

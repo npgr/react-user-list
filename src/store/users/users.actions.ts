@@ -4,6 +4,7 @@ import { UserForChange } from "../../models/user";
 
 export const getUsers = () => ({
   type: USER_TYPES.GET_USER_LIST,
+  // TODO: use a builder to convert response data to a camelCase notation fields
   payload: api.getUsers(),
 });
 
