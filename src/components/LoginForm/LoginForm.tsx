@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Container, Button, Form, Message } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { ROUTES } from "../routes/routes";
-import { login } from "../store/auth/auth.actions";
-import { selectToken, selectErrorAuth } from "../store/auth/auth.selectors";
+import { ROUTES } from "../../routes/routes";
+import { login } from "../../store/auth/auth.actions";
+import { selectToken, selectErrorAuth } from "../../store/auth/auth.selectors";
 
 const LoginForm = () => {
   const history = useHistory();

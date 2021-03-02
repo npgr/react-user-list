@@ -1,12 +1,12 @@
 import React from "react";
-import { User } from "../models/user";
-import UserCard from "./UserCard";
+import { User } from "../../models/user";
+import UserCard from "../UserCard";
 
 interface IUsersListProps {
   users: User[];
 }
 
-const UsersList = ({ users }: IUsersListProps) => {
+const UserList = ({ users }: IUsersListProps) => {
   return (
     <>
       {users.map(({ id, first_name, last_name }, index) => (
@@ -21,4 +21,4 @@ const UsersList = ({ users }: IUsersListProps) => {
   );
 };
 
-export default UsersList;
+export default UserList;

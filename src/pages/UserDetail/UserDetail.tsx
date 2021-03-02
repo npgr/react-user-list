@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Button, Card } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
-import { UserDetail } from "../models/user";
-import { getUser, clearMessages } from "../store/users/users.actions";
+import { UserDetail } from "../../models/user";
+import { getUser, clearMessages } from "../../store/users/users.actions";
 import {
   selectUser,
   selectError,
   selectSuccessUpdate,
-} from "../store/users/users.selectors";
-import { PageContainer } from "../components/PageContainer";
-import { Title } from "../components/Title";
-import UserForm from "../components/UserForm";
-import UpdateModal from "../components/UpdateModal";
+} from "../../store/users/users.selectors";
+import { PageContainer } from "../../components/PageContainer";
+import { Title } from "../../components/Title";
+import UserForm from "../../components/UserForm";
+import UpdateModal from "../../components/UpdateModal";
+import { TitleText } from "./UserDetail.styles";
 
 interface IUserDetailParams {
   id: string;
@@ -32,11 +32,6 @@ const Home: React.FC = () => {
   const successUpdate: string = useSelector(selectSuccessUpdate);
 
   const goBack = () => history.goBack();
-
-  const TitleText = styled.div`
-    display: inline-block;
-    margin-right: 10rem;
-  `;
 
   const updateMessage = error || successUpdate;
 

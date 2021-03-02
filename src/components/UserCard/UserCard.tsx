@@ -1,14 +1,8 @@
 import React from "react";
 import { Card, Icon } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
-import { User } from "../models/user";
-
-const CardContainer = styled.div`
-  display: inline-block;
-  padding: 0.5rem;
-  max-width: 20rem;
-`;
+import { User } from "../../models/user";
+import { CardContainer } from "./UserCard.styles";
 
 const UserCard = ({ id, first_name, last_name }: User) => {
   const history = useHistory();

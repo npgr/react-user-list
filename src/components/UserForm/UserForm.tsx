@@ -1,24 +1,16 @@
 import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
-import { UserDetail } from "../models/user";
-import { changeUser, deleteUser } from "../store/users/users.actions";
+import { UserDetail } from "../../models/user";
+import { changeUser, deleteUser } from "../../store/users/users.actions";
+import { Container } from "./UserForm.styles";
+import { MODE } from "./UserForm.constants";
 
-const Container = styled.div`
-  margin-top: 1rem;
-  padding: 1.5rem;
-  max-width: 20rem;
-`;
 interface IProps {
   user: UserDetail;
 }
 
 const UserForm = ({ user }: IProps) => {
-  const MODE = {
-    VIEW: "VIEW",
-    EDIT: "EDIT",
-  };
   const [mode, setmode] = useState(MODE.VIEW);
   const [userEdited, setUserEdited] = useState(user);
   const dispatch = useDispatch();

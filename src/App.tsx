@@ -6,7 +6,7 @@ import { getToken } from "./utils/token";
 import { selectInitialized } from "./store/auth/auth.selectors";
 import { setToken } from "./store/auth/auth.actions";
 import PrivateRoute from "./components/PrivateRoute";
-import UserList from "./pages/UserList";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import UserDetail from "./pages/UserDetail";
 import Header from "./components/Header";
@@ -25,7 +25,7 @@ const App: React.FC = () => {
       {initialized && (
         <Switch>
           <Route exact path={ROUTES.LOGIN} component={Login} />
-          <PrivateRoute exact path={ROUTES.HOME} component={UserList} />
+          <PrivateRoute exact path={ROUTES.HOME} component={Home} />
           <PrivateRoute path={ROUTES.USER_DETAIL} component={UserDetail} />
           <Redirect to={ROUTES.HOME} />
         </Switch>

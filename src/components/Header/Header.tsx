@@ -1,20 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import { Button, Icon } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { selectToken, selectUser } from "../store/auth/auth.selectors";
-import { ROUTES } from "../routes/routes";
-
-import { logout } from "../store/auth/auth.actions";
-import { Title } from "./Title";
-
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: gainsboro;
-`;
+import { selectToken, selectUser } from "../../store/auth/auth.selectors";
+import { ROUTES } from "../../routes/routes";
+import { logout } from "../../store/auth/auth.actions";
+import { Title } from "../Title";
+import { Container } from "./Header.styles";
 
 const Home: React.FC = () => {
   const history = useHistory();

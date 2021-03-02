@@ -1,15 +1,6 @@
 import React from "react";
 import { Button, Modal } from "semantic-ui-react";
-import styled from "styled-components";
-
-const Text = styled.div`
-  padding: 3rem;
-  text-align: center;
-`;
-
-const ButtonContainer = styled.div`
-  text-align: center;
-`;
+import { ButtonContainer, Text } from "./UpdateModal.styles";
 
 interface IProps {
   message: string;
