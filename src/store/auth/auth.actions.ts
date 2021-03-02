@@ -1,7 +1,13 @@
 import { ThunkDispatch } from "redux-thunk";
 import { AxiosResponse, AxiosError } from "axios";
+import { saveToken, deleteToken } from "../../utils/token";
 import api from "../../api/api";
 import AUTH_TYPES from "./auth.types";
+
+export const setToken = (token: string, user: string) => ({
+  type: AUTH_TYPES.SET_TOKEN,
+  payload: { token, user },
+});
 
 export type StoreDispatch = ThunkDispatch<any, any, any>;
 
@@ -13,6 +19,7 @@ export const login = (user: string, password: string) => (
     .login(user, password)
     .then((response: AxiosResponse) => {
       const token = (response && response.data && response.data.token) || null;
+      token && saveToken(token, user);
       return dispatch(
         token
           ? {
@@ -37,6 +44,9 @@ export const login = (user: string, password: string) => (
     });
 };
 
-export const logout = () => ({
-  type: AUTH_TYPES.LOGOUT,
-});
+export const logout = () => {
+  deleteToken();
+  return {
+    type: AUTH_TYPES.LOGOUT,
+  };
+};

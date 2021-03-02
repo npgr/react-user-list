@@ -2,6 +2,7 @@ import { AnyAction } from "redux";
 import AUTH_TYPES from "./auth.types";
 
 const defaultState = {
+  initialized: false,
   loading: false,
   token: null,
   user: null,
@@ -10,6 +11,13 @@ const defaultState = {
 
 export default (state = defaultState, { type, payload }: AnyAction) => {
   switch (type) {
+    case AUTH_TYPES.SET_TOKEN:
+      return {
+        ...state,
+        initialized: true,
+        token: payload.token,
+        user: payload.user,
+      };
     case AUTH_TYPES.LOGIN_PENDING:
       return {
         ...state,

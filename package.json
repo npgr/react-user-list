@@ -71,6 +71,7 @@
     ]
   },
   "devDependencies": {
+    "@types/redux-mock-store": "^1.0.2",
     "babel-eslint": "10.1.0",
     "cross-env": "^7.0.2",
     "eslint": "6.8.0",
@@ -90,6 +91,7 @@
     "lint-staged": "10.1.1",
     "prettier": "2.0.2",
     "prettier-eslint": "9.0.1",
-    "prettier-eslint-cli": "5.0.0"
+    "prettier-eslint-cli": "5.0.0",
+    "redux-mock-store": "^1.5.4"
   }
 }

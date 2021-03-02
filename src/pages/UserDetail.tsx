@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Container, Button, Card } from "semantic-ui-react";
+import { Button, Card } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { UserDetail } from "../models/user";
